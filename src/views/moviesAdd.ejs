@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie add</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/moviesAddValidation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <figure>
+      <img src="/img/logo-DH.png" alt="Logo Digital House" />
+    </figure>
+    <h1 class="moviesAddTitulo"></h1>
+    <br />
+    <section id="formulario">
+      <article class="mostrarFormulario">
+        <ul class="errores"></ul>
+        <form class="form" action="/movies/create" method="POST">
+          <label for="title">Titulo </label>
+          <div class="title"><input type="text" name="title" class="input" id="title" /></div>
+          <label for="secuela">Secuela </label>
+          <div class="secuela"><input type="text" name="secuela" class="input" id="secuela" /></div>
+          <label for="rating">Calificación </label>
+          <div class="rating">
+            <input
+              type="number"
+              name="rating"
+              class="input"
+              id="rating"
+              placeholder="Indicar valor entre 0 y 10"
+            />
+          </div>
+          <label for="awards">Premios </label>
+          <div class="awards">
+            <input
+              type="number"
+              name="awards"
+              class="input"
+              id="awards"
+              placeholder="Indicar valor entre 0 y 10"
+            />
+          </div>
+          <label for="release_date">Fecha de creación </label>
+          <div class="release_date">
+            <input
+              type="date"
+              name="release_date"
+              class="input"
+              id="release_date"
+            />
+          </div>
+          <label for="length">Duración </label>
+          <div class="length">
+            <input
+              type="number"
+              name="length"
+              class="input"
+              id="length"
+              placeholder="Indicar duración entre 60 y 360 minutos"
+            />
+          </div>
+          <label for="genreID">Género </label>
+          <div class="genre_id">
+            <select name="genre_id" id="genre_id" class="input">
+              <option value="" disabled selected>
+                - Seleccione el género -
+              </option>
+              <% allGenres.forEach(genre => { %>
+              <option value="<%= genre.id %>"><%= genre.name %></option>
+              <% }); %>
+            </select>
+          </div>
+          <label for="genreID">country</label>
+          <div class="country_id">
+            <select name="country_id" id="country_id" class="input">
+              <option value="" disabled selected>
+                - Seleccione el género -
+              </option>
+            </select>
+          </div>
+          <br />
+          <div>
+            <button class="botonAgregar" type="submit">Agregar</button>
+
+            <a class="botonVolver" href="/movies">Listado de Películas</a>
+          </div>
+        </form>
+      </article>
+    </section>
+  </body>
+</html>
