@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Películas</title>
     <link rel='stylesheet' href='/css/style.css' />
-
+    <script src="/js/moviesList.js"></script>
 </head>
 
 <body>
@@ -21,14 +21,16 @@
 
     </p>
     <br>
-    <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
-        <li>
-            <a  href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %></a>
-        </li>
-        <% } %>
+    <section class="section-list">
+        <ul class="movies-list"></ul>        
+    </section>
 
-    </ul>
+    <button id="preview">Anterior</button>
+    <div class="page-list">
+
+    </div>
+    <button id="next">Siguiente</button>
+
     <script src="/js/moviesList.js"></script>    
 </body>
 </html>
